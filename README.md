@@ -1,4 +1,3 @@
-sudo su
 sudo rm /etc/apt/sources.list && sudo touch /etc/apt/sources.list && sudo chmod +rwx /etc/apt/sources.list && sudo printf "deb http://deb.debian.org/debian buster main contrib non-free
 deb-src http://deb.debian.org/debian buster main contrib non-free
 deb http://deb.debian.org/debian-security/ buster/updates main contrib non-free
