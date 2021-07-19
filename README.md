@@ -1,6 +1,6 @@
 sudo su
-apt-get update -y
-apt-get install linux-headers-$(uname -r) build-essential git -y
+apt-get update && apt-get upgrade -y
+apt-get install linux-headers-$(uname -r) build-essential git ghex -y
 git clone https://github.com/Synaxis/rtl8188eu
 cd rtl8188eu
 make all
