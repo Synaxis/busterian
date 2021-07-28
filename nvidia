@@ -1,0 +1,20 @@
+   nvidia-xconfig
+              Reads an existing X config file and adapts it to use the NVIDIA driver.  If no X config file can be found, a new one is created at /etc/X11/XF86Config with default settings.
+
+       nvidia-xconfig --post-tree --metamode-orientation=clone
+              Reads the existing X configuration file, adds the MetaModeOrientation option, and then prints the resulting config file to standard out in tree form.  The configuration file is not modified.
+
+       nvidia-xconfig --enable-all-gpus
+              Examines the system and configures an X screen for each display device it finds.
+
+       nvidia-xconfig --mode=1600x1200
+              Adds a 1600x1200 mode to an existing X configuration.
+
+       nvidia-xconfig --mode-list=1600x1200 1280x1024
+              Removes any existing modes from the X configuration file, replacing them with "1600x1200" and "1280x1024".
+
+       nvidia-xconfig --metamodes=1024x768 +0+0, 1024x768 +1024+0
+              Adds the MetaMode "1024x768 +0+0, 1024x768 +1024+0" to the existing X configuration file, replacing any existing MetaModes X configuration option.
+
+       nvidia-xconfig --only-one-x-screen --sli=Auto
+              Configures the 
