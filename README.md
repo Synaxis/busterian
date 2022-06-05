@@ -1,1 +1,8 @@
-apt install git linux-headers-5.10.0-8-amd64 -y && git clone https://github.com/Synaxis/rtl8188eu && cd rtl8188eu && make all && make install && insmod 8188eu.ko
+rm -rf /etc/apt/sources.list && touch /etc/apt/sources.list && echo "deb http://deb.debian.org/debian bullseye main contrib non-free
+deb-src http://deb.debian.org/debian bullseye main contrib non-free
+
+deb http://deb.debian.org/debian-security/ bullseye-security main contrib non-free
+deb-src http://deb.debian.org/debian-security/ bullseye-security main contrib non-free
+
+deb http://deb.debian.org/debian bullseye-updates main contrib non-free
+deb-src http://deb.debian.org/debian bullseye-updates main contrib non-free" | sudo tee -a /etc/apt/sources.list
