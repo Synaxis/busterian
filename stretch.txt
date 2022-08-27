@@ -1,3 +1,9 @@
+wget https://deb.freexian.com/extended-lts/pool/main/f/freexian-archive-keyring/freexian-archive-keyring_2022.06.08_all.deb && sudo dpkg -i freexian-archive-keyring_2022.06.08_all.deb
+
+
+sudo wget https://deb.freexian.com/extended-lts/archive-key.gpg -O /etc/apt/trusted.gpg.d/freexian-archive-extended-lts.gpg
+
+
 deb http://deb.debian.org/debian stretch main contrib non-free
 deb-src http://deb.debian.org/debian stretch main contrib non-free
 
