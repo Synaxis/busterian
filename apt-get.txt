@@ -1,1 +1,1 @@
-vlc wine wine32 wireshark golang-go docker docker-compose calibre ghex g++ synaptic gnome-sudoku  
+vlc wine wine32 wireshark golang-go docker docker-compose calibre ghex g++ synaptic gnome-sudoku winetricks
