@@ -1,1 +1,1 @@
-vlc wine wine32 wireshark git bleachbit cpu-x dconf-editor psensor virtualbox-qt golang-go docker docker-compose calibre ghex g++ synaptic gnome-sudoku winetricks gedit
+vlc wine wine32 wireshark git bleachbit cpu-x dconf-editor psensor virtualbox-qt golang-go docker docker-compose calibre ghex g++ synaptic gnome-sudoku winetricks gedit gnome-shell-extension-manager gnome-shell-extensions
