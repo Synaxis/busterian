@@ -1,1 +1,1 @@
-watch nvidia-smi
+sudo apt-get install vulkan-tools primus-vk-nvidia primus-vk primus-nvidia nvidia-primus-vk-wrapper dxvk -y && sudo vulkaninfo 
