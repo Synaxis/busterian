@@ -1,0 +1,1 @@
+PULSE_LATENCY_MSEC=60 %command% -vulkan -USEALLAVAILABLECORES -cpuLoadRebalancing -ignorepipelinecache gamemoderun
