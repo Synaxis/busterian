@@ -1,3 +1,3 @@
-apt-get install vlc-bin  wireshark git bleachbit cpu-x dconf-editor lutris flowblade psensor virtualbox-qt golang-go docker docker-compose calibre ghex g++ synaptic gnome-sudoku winetricks gedit gnome-shell-extension-manager gnome-shell-extensions gnome-tweaks nvidia-settings -y &&
+apt-get install vlc-bin  wireshark git bleachbit cpu-x dconf-editor lutris flowblade psensor virtualbox-qt golang-go docker docker-compose calibre ghex g++ synaptic gnome-sudoku winetricks gedit playonlinux killall pslist intel-gpu-tools gnome-shell-extension-manager gnome-shell-extensions gnome-tweaks nvidia-settings -y &&
 
 sudo ubuntu-drivers-install
