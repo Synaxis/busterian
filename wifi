@@ -1,2 +1,1 @@
-git clone https://github.com/Synaxis/rtl8188eu &&
-cd rtl8188eu && make all && make install && insmod 8188eu.ko
+sudo apt update && sudo apt install git build-essential dkms linux-headers-$(uname -r) -y && git clone https://github.com/cilynx/rtl88x2bu.git && cd rtl88x2bu && make && sudo make install && sudo modprobe 88x2bu && lsmod | grep 88x2bu
