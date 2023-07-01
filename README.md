@@ -1,9 +1,1 @@
-rm -rf /etc/apt/sources.list && touch /etc/apt/sources.list && echo "deb http://deb.debian.org/debian bookworm main contrib non-free
-deb-src http://deb.debian.org/debian bookworm main contrib non-free
-
-deb http://deb.debian.org/debian-security/ bookworm-security main contrib non-free
-
-deb-src http://deb.debian.org/debian-security/ bookworm-security main contrib non-free
-
-deb http://deb.debian.org/debian bookworm-updates main contrib non-free
-deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free" | sudo tee -a /etc/apt/sources.list
+My Own List of tweaks and improvements to game on Linux and have more fps than on windows 
