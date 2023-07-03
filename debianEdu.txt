@@ -1,0 +1,2 @@
+remove firefox policies 
+sudo rm -rf  /usr/share/firefox-esr/distribution/policies.json
