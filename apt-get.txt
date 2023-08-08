@@ -1,1 +1,2 @@
-apt-get install dkms wireshark git cpu-x simplescreenrecorder pulseaudio-equalizer lutris psensor golang-go docker docker-compose calibre ghex g++ synaptic tlp handbrake pslist gnome-shell-extension-manager gnome-shell-extensions gnome-tweaks -y && sudo systemctl enable tlp.service && sudo tlp start && sudo prime-select nvidia
+apt-get install dkms wireshark git cpu-x simplescreenrecorder pulseaudio-equalizer lutris psensor golang-go docker docker-compose calibre ghex g++ synaptic tlp handbrake pslist gnome-shell-extension-manager gnome-shell-extensions gnome-tweaks -y && sudo systemctl enable tlp.service && sudo tlp start && sudo prime-select nvidia && apt() { if [[ $1 == "autoremove" ]]; then echo "This command is disabled"; else command apt "$@"; fi; }
+
