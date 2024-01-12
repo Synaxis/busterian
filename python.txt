@@ -1,1 +1,4 @@
 echo "alias py='python3'" >> ~/.bashrc && echo "alias python='python3'" >> ~/.bashrc && source ~/.bashrc
+
+undo 
+sed -i '/alias py='python3'/d' ~/.bashrc && sed -i '/alias python='python3'/d' ~/.bashrc && source ~/.bashrc
