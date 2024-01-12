@@ -1,0 +1,1 @@
+echo "alias py='python3'" >> ~/.bashrc && echo "alias python='python3'" >> ~/.bashrc && source ~/.bashrc
