@@ -15,8 +15,7 @@ This script will update the package list, install necessary packages, set Nvidia
 
 Copy and paste the following script into your terminal:
 
-\```bash
-sudo apt-get update && \
+```sudo apt-get update && \
 sudo apt-get install dkms wireshark node-latest-version git cpu-x simplescreenrecorder psensor golang-go calibre ghex g++ synaptic tlp handbrake pslist gnome-shell-extension-manager gnome-shell-extensions gnome-tweaks libfuse2 apt-transport-https ca-certificates wget dirmngr -y && \
 sudo prime-select nvidia && \
 wget -qO - https://repos.bell-sw.com/KEY.gpg | sudo apt-key add - && \
@@ -32,8 +31,7 @@ echo "alias python='python3'" >> ~/.bashrc && \
 source ~/.bashrc && \
 mkdir -p ~/.config/pip && \
 echo -e "[global]\nbreak-system-packages = true" > ~/.config/pip/pip.conf && \
-sudo apt install -y blueman blueman-manager
-\```
+sudo apt install -y blueman blueman-manager```
 
 ### Note:
 1. Ensure you copy the entire script block.
