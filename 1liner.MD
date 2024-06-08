@@ -1,19 +1,5 @@
-# Installation Script
+set Nvidia Prime, install Java 11, configure bash aliases and functions, limit swap file if the system memory is greater than 16GB, and install Python pip and Blueman for Bluetooth management.
 
-This script will update the package list, install necessary packages, set Nvidia Prime, add the BellSoft repository, install Java 11, configure bash aliases and functions, adjust the swap file if the system memory is greater than 16GB, and install Python pip and Blueman for Bluetooth management.
-
-## Installation Steps
-
-1. Update and install packages
-2. Set Nvidia Prime
-3. Add BellSoft repository and install Java
-4. Add aliases and functions to bash configuration
-5. Adjust swap file if memory is greater than 16GB
-6. Install additional Python and Blueman packages
-
-## Script
-
-Copy and paste the following script into your terminal:
 
 ```bash
 sudo apt-get update && \
