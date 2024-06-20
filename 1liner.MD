@@ -3,7 +3,7 @@ set Nvidia Prime, install Java 11, configure bash aliases and functions, limit s
 
 ```bash
 sudo apt-get update && \
-sudo apt-get install dkms wireshark node-latest-version git cpu-x simplescreenrecorder psensor golang-go calibre ghex g++ synaptic tlp handbrake pslist gnome-shell-extension-manager gnome-shell-extensions gnome-tweaks libfuse2 apt-transport-https ca-certificates wget dirmngr -y && \
+sudo apt-get install dkms wireshark node-latest-version git cpu-x simplescreenrecorder psensor golang-go calibre ghex g++ synaptic handbrake pslist gnome-shell-extension-manager gnome-shell-extensions gnome-tweaks libfuse2 apt-transport-https ca-certificates wget dirmngr -y && \
 sudo prime-select nvidia && \
 wget -qO - https://repos.bell-sw.com/KEY.gpg | sudo apt-key add - && \
 echo "deb [arch=amd64] https://repos.bell-sw.com/deb stable main" | sudo tee /etc/apt/sources.list.d/bellsoft.list && \
