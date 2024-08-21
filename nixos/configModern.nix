@@ -1,86 +1,49 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # default
-      ./hardware-configuration.nix
-    ];
-
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # Valid hostname.
-  networking.hostName = "nixos-3839j"; # Change this to a valid hostname
-
-  # Enable network manager
-  networking.networkmanager.enable = true;
-
-  # Set timezone
-  time.timeZone = "America/Sao_Paulo";
-
-  # Internationalization
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pt_BR.UTF-8";
-    LC_IDENTIFICATION = "pt_BR.UTF-8";
-    LC_MEASUREMENT = "pt_BR.UTF-8";
-    LC_MONETARY = "pt_BR.UTF-8";
-    LC_NAME = "pt_BR.UTF-8";
-    LC_NUMERIC = "pt_BR.UTF-8";
-    LC_PAPER = "pt_BR.UTF-8";
-    LC_TELEPHONE = "pt_BR.UTF-8";
-    LC_TIME = "pt_BR.UTF-8";
-  };
-
-  # Keyboard layout
-  services.xserver.layout = "br";
-  services.xserver.xkbVariant = "";
-  console.keyMap = "br-abnt2";
-
-  # Enable CUPS
-  services.printing.enable = true;
-
-  # Audio
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
-
-  # User configuration
-  users.users.metaorior = {
-    isNormalUser = true;
-    description = "metaorior";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      xfce.xfce4-terminal
-    ];
-  };
-
-  services.xserver.displayManager.lightdm.autoLogin.enable = true;
-  services.xserver.displayManager.lightdm.autoLogin.user = "metaorior";
-
-  # Optional Firefox installation
-  programs.firefox.enable = false;
+  # Basic System Configuration
+  imports = [
+    # Include the results of the hardware scan for automatic configuration
+    ./hardware-configuration.nix
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # NVIDIA driver configuration
-  nixpkgs.config.nvidia.acceptLicense = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # Enable OpenGL for the system
   hardware.opengl.enable = true;
+
+  # Enable the X server and configure video drivers
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" "intel" ]; # Include Intel and NVIDIA drivers
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.autoLogin.user = "meta"; # Optional: auto-login
+
+  # Enable NVIDIA Prime
   hardware.nvidia = {
-    modesetting.enable = true;
+    modesetting.enable = true;  # Required for proper mode setting
     powerManagement.enable = false;
     powerManagement.finegrained = false;
-    open = false;
+    open = true;  # Use NVIDIA's proprietary drivers
     nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;  # Specify the driver version if needed
+
+    prime = {
+      # Configure Bus IDs for Intel and NVIDIA GPUs
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+
+      # Configure Prime modes
+      offload.enable = true;  # Enable offload mode
+      offload.enableOffloadCmd = true;  # Enable offload command
+
+      # Uncomment to use sync mode instead of offload mode
+      # sync.enable = true;
+
+      # Uncomment to use reverse sync mode if needed
+      # reverseSync.enable = true;
+    };
   };
 
   # System packages
@@ -89,6 +52,7 @@
     zip
     torrential
     bluez
+    gnome-extension-manager
     transmission
     kate
     google-chrome
@@ -97,6 +61,7 @@
     gimp
     htop
     neofetch
+    gnomeExtensions.prime-helper
     handbrake
     libgcc
     virtualbox
@@ -114,11 +79,37 @@
     libglvnd
   ];
 
-  # Enable SDDM and Plasma5
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.enable = true;
+  # Network configuration
+  networking.networkmanager.enable = true;  # Use NetworkManager for managing network connections
 
-  # Set NixOS version
-  system.stateVersion = "24.05";
+  # Enable the firewall with default settings
+  networking.firewall.enable = true;
+
+  # System locale and timezone settings
+  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = "America/New_York";
+
+  # Enable SSH service (optional)
+  services.openssh.enable = true;
+
+  # Use GRUB bootloader
+  boot.loader.grub.enable = true;
+  boot.loader.grub.version = 2;
+  boot.loader.grub.device = "nodev";  # Use UEFI mode, no device specification needed
+  boot.loader.grub.efiSupport = true;  # Enable EFI support
+  boot.loader.efi.canTouchEfiVariables = true;  # Required for EFI boot management
+
+  # Set system hostname
+  networking.hostName = "my-laptop";
+
+  # Configure user accounts
+  users.users.meta = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];  # Allow user to use sudo
+  };
+
+  # Rebuild the system
+  system.stateVersion = "23.05";  # Update this to the current NixOS version
+
+  # Optional: Enable systemd services or other settings as needed
 }
