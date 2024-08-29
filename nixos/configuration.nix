@@ -10,8 +10,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Valid hostname.
+  # Valid hostname
   networking.hostName = "nixos-3839j"; # Change this to a valid hostname
+
+  # Enable NTFS support at boot
+  boot.supportedFilesystems = [ "ntfs" ];
 
   # Enable network manager
   networking.networkmanager.enable = true;
@@ -94,6 +97,7 @@
     google-chrome
     vlc
     libreoffice
+    gzipv
     gimp
     htop
     neofetch
@@ -103,8 +107,10 @@
     wineWowPackages.full
     blueman
     jdk22
+python312Packages.pip
     prismlauncher
     rar
+gedit
     unrar
     python3
     git
