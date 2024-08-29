@@ -52,24 +52,25 @@
     zip
     torrential
     bluez
-    gnome-extension-manager
     transmission
     kate
     google-chrome
     vlc
     libreoffice
+    gzipv
     gimp
     htop
     neofetch
-    gnomeExtensions.prime-helper
     handbrake
     libgcc
     virtualbox
     wineWowPackages.full
     blueman
     jdk22
+python312Packages.pip
     prismlauncher
     rar
+gedit
     unrar
     python3
     git
